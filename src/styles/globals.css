@@ -2,113 +2,436 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Inter font with fallbacks */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-  --primary: 221.2 83.2% 53.3%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 96%;
-  --secondary-foreground: 222.2 84% 4.9%;
-  --muted: 210 40% 96%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 210 40% 96%;
-  --accent-foreground: 222.2 84% 4.9%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 221.2 83.2% 53.3%;
+  /* Brand color palette - aligned with tailwind.config.ts */
+  --navy-900: #0a1a2b;    /* Deep navy - primary brand */
+  --navy-800: #0f2137;
+  --navy-700: #1a2f47;
+  --navy-600: #2d4263;
+  --navy-500: #405580;
+  --accent-600: #2f6fff;   /* Primary accent */
+  --accent-500: #4785ff;
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-300: #cbd5e1;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50: #f8fafc;
+  
+  /* Semantic color mapping */
+  --background: #ffffff;
+  --foreground: var(--slate-900);
+  --card: #ffffff;
+  --card-foreground: var(--slate-900);
+  --popover: #ffffff;
+  --popover-foreground: var(--slate-900);
+  --primary: var(--navy-900);
+  --primary-foreground: #ffffff;
+  --secondary: var(--slate-500);
+  --secondary-foreground: var(--slate-900);
+  --muted: var(--slate-100);
+  --muted-foreground: var(--slate-600);
+  --accent: var(--accent-600);
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: var(--slate-200);
+  --input: var(--slate-200);
+  --ring: var(--accent-600);
   --radius: 0.5rem;
 }
 
 .dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 217.2 91.2% 59.8%;
-  --primary-foreground: 222.2 84% 4.9%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 224.3 76.3% 94.1%;
+  --background: var(--navy-900);
+  --foreground: var(--slate-100);
+  --card: var(--navy-800);
+  --card-foreground: var(--slate-100);
+  --popover: var(--navy-800);
+  --popover-foreground: var(--slate-100);
+  --primary: var(--accent-500);
+  --primary-foreground: var(--navy-900);
+  --secondary: var(--slate-700);
+  --secondary-foreground: var(--slate-100);
+  --muted: var(--navy-800);
+  --muted-foreground: var(--slate-400);
+  --accent: var(--accent-500);
+  --accent-foreground: var(--navy-900);
+  --destructive: #dc2626;
+  --destructive-foreground: var(--slate-100);
+  --border: var(--navy-700);
+  --input: var(--navy-700);
+  --ring: var(--accent-500);
 }
 
+/* Base styles */
 * {
-  border-color: hsl(var(--border));
-}
-
-body {
-  color: hsl(var(--foreground));
-  background: hsl(var(--background));
+  box-sizing: border-box;
+  border-color: var(--border);
 }
 
 html {
   scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  font-variant-numeric: oldstyle-nums;
 }
 
-/* Custom Prose Styles */
+body {
+  margin: 0;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus states */
+*:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* Modern Prose Styles */
 .prose {
-  @apply max-w-none;
+  @apply max-w-none text-slate-700;
+  font-feature-settings: "kern", "liga", "clig", "calt";
 }
 
 .prose h1,
 .prose h2,
 .prose h3,
-.prose h4 {
-  @apply font-bold tracking-tight;
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply font-bold tracking-tight text-navy-900;
+  font-feature-settings: "dlig", "liga", "lnum", "kern";
+  line-height: 1.25;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.prose h1:first-child,
+.prose h2:first-child,
+.prose h3:first-child {
+  margin-top: 0;
 }
 
 .prose h1 {
-  @apply text-4xl lg:text-5xl;
+  @apply text-4xl lg:text-6xl;
+  letter-spacing: -0.025em;
 }
 
 .prose h2 {
-  @apply text-3xl lg:text-4xl;
+  @apply text-3xl lg:text-5xl;
+  letter-spacing: -0.025em;
 }
 
 .prose h3 {
-  @apply text-2xl lg:text-3xl;
+  @apply text-2xl lg:text-4xl;
+  letter-spacing: -0.02em;
 }
 
-.prose img {
-  @apply rounded-lg shadow-lg;
+.prose h4 {
+  @apply text-xl lg:text-2xl;
+}
+
+.prose h5 {
+  @apply text-lg lg:text-xl;
+}
+
+.prose h6 {
+  @apply text-base lg:text-lg;
+}
+
+.prose p {
+  @apply text-slate-600 leading-relaxed;
+  margin-bottom: 1.5em;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose .lead {
+  @apply text-xl lg:text-2xl text-slate-600 leading-relaxed;
+  margin-bottom: 2em;
 }
 
 .prose a {
-  @apply text-primary hover:text-primary/80 font-medium no-underline;
-  transition: color 0.2s ease;
+  @apply text-accent-600 font-medium no-underline;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid transparent;
 }
 
 .prose a:hover {
-  @apply underline;
+  @apply text-accent-500;
+  border-bottom-color: currentColor;
+}
+
+.prose a:focus {
+  @apply outline-none ring-2 ring-accent-600 ring-offset-2 rounded;
+}
+
+.prose strong {
+  @apply font-semibold text-slate-900;
+}
+
+.prose em {
+  @apply italic;
+}
+
+.prose img,
+.prose video {
+  @apply rounded-xl shadow-lg;
+  margin: 2em 0;
+}
+
+.prose figure {
+  margin: 2em 0;
+}
+
+.prose figcaption {
+  @apply text-sm text-slate-500 text-center mt-3;
+  font-style: italic;
 }
 
 .prose blockquote {
-  @apply border-l-4 border-primary/20 bg-muted/50 px-4 py-2 italic;
+  @apply border-l-4 border-accent-600/20 bg-slate-50 px-6 py-4 not-italic;
+  margin: 2em 0;
+  position: relative;
 }
 
+.prose blockquote p {
+  @apply text-slate-700 text-lg leading-relaxed;
+  margin-bottom: 0;
+}
+
+.prose blockquote cite {
+  @apply text-slate-500 text-sm font-medium block mt-3;
+}
+
+.prose blockquote cite:before {
+  content: "— ";
+}
+
+.prose ul,
+.prose ol {
+  @apply text-slate-600;
+  margin: 1.5em 0;
+  padding-left: 1.5em;
+}
+
+.prose ul li,
+.prose ol li {
+  margin-bottom: 0.5em;
+  line-height: 1.6;
+}
+
+.prose ul li::marker {
+  @apply text-accent-600;
+}
+
+.prose ol li::marker {
+  @apply text-accent-600 font-medium;
+}
+
+.prose hr {
+  @apply border-0 border-t border-slate-200 my-8;
+}
+
+.prose table {
+  @apply w-full border-collapse;
+  margin: 2em 0;
+}
+
+.prose th {
+  @apply bg-slate-50 px-4 py-3 text-left text-sm font-semibold text-slate-900 border-b border-slate-200;
+}
+
+.prose td {
+  @apply px-4 py-3 text-sm text-slate-600 border-b border-slate-100;
+}
+
+.prose th:first-child,
+.prose td:first-child {
+  padding-left: 0;
+}
+
+.prose th:last-child,
+.prose td:last-child {
+  padding-right: 0;
+}
+
+/* Code styling */
 .prose pre {
-  @apply bg-muted border rounded-lg p-4 overflow-x-auto;
+  @apply bg-slate-900 text-slate-100 rounded-xl p-6 overflow-x-auto;
+  margin: 2em 0;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  line-height: 1.5;
 }
 
 .prose code {
-  @apply bg-muted px-1.5 py-0.5 rounded text-sm font-mono;
+  @apply bg-slate-100 text-slate-800 px-2 py-1 rounded text-sm font-mono;
+  font-size: 0.875em;
 }
 
 .prose pre code {
-  @apply bg-transparent p-0;
+  @apply bg-transparent text-inherit p-0 text-sm;
+  font-size: 0.875rem;
+}
+
+.prose kbd {
+  @apply bg-slate-100 border border-slate-300 rounded px-2 py-1 text-xs font-mono shadow-sm;
+}
+
+/* Dark mode prose */
+.dark .prose {
+  @apply text-slate-300;
+}
+
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4,
+.dark .prose h5,
+.dark .prose h6 {
+  @apply text-slate-100;
+}
+
+.dark .prose p {
+  @apply text-slate-400;
+}
+
+.dark .prose strong {
+  @apply text-slate-200;
+}
+
+.dark .prose blockquote {
+  @apply bg-slate-800 border-accent-500/20;
+}
+
+.dark .prose blockquote p {
+  @apply text-slate-300;
+}
+
+.dark .prose th {
+  @apply bg-slate-800 text-slate-200 border-slate-700;
+}
+
+.dark .prose td {
+  @apply text-slate-400 border-slate-700;
+}
+
+.dark .prose code {
+  @apply bg-slate-800 text-slate-200;
+}
+
+.dark .prose pre {
+  @apply bg-slate-800;
+}
+
+.dark .prose hr {
+  @apply border-slate-700;
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(10px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes slideDown {
+  from { 
+    transform: translateY(-10px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+/* Loading states */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  to { left: 100%; }
+}
+
+/* Scroll animations */
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-mt-16 {
+    scroll-margin-top: 4rem;
+  }
+  
+  .scroll-mt-24 {
+    scroll-margin-top: 6rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .prose {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  .prose h1 { font-size: 18pt; }
+  .prose h2 { font-size: 16pt; }
+  .prose h3 { font-size: 14pt; }
+  
+  .no-print {
+    display: none !important;
+  }
 }
