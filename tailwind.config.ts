@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 
+// Enhanced design system configuration
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -75,7 +76,7 @@ const config: Config = {
         sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
       },
       fontSize: {
-        // Fluid typography scale
+        // Enhanced typography scale
         'xs': ['0.75rem', { lineHeight: '1rem' }],
         'sm': ['0.875rem', { lineHeight: '1.25rem' }],
         'base': ['1rem', { lineHeight: '1.5rem' }],
@@ -138,6 +139,29 @@ const config: Config = {
         slideDown: {
           '0%': { transform: 'translateY(-10px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+            color: '#0f172a',
+            '--tw-prose-body': '#0f172a',
+            '--tw-prose-headings': '#0a1a2b',
+            '--tw-prose-links': '#2f6fff',
+            '--tw-prose-bold': '#0a1a2b',
+            '--tw-prose-counters': '#64748b',
+            '--tw-prose-bullets': '#cbd5e1',
+            '--tw-prose-hr': '#e2e8f0',
+            '--tw-prose-quotes': '#0f172a',
+            '--tw-prose-quote-borders': '#cbd5e1',
+            '--tw-prose-captions': '#64748b',
+            '--tw-prose-code': '#0a1a2b',
+            '--tw-prose-pre-code': '#e2e8f0',
+            '--tw-prose-pre-bg': '#0f172a',
+            '--tw-prose-th-borders': '#cbd5e1',
+            '--tw-prose-td-borders': '#e2e8f0',
+          },
         },
       },
     },
