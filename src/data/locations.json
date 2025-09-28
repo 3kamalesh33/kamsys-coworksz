@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "title": "Downtown Hub",
+    "address": "123 Business District, City Center",
+    "image": "/images/locations/downtown-hub.jpg",
+    "description": "Modern coworking space in the heart of the business district with premium amenities and networking opportunities.",
+    "features": [
+      "50+ Private Offices",
+      "High-speed Internet",
+      "24/7 Access",
+      "Parking Available",
+      "Conference Rooms",
+      "Reception Services"
+    ],
+    "capacity": 200,
+    "priceRange": "₹8,000 - ₹75,000",
+    "coordinates": {
+      "lat": 11.0168,
+      "lng": 76.9558
+    }
+  },
+  {
+    "id": 2,
+    "title": "Tech Park Campus",
+    "address": "456 Innovation Ave, Tech Quarter",
+    "image": "/images/locations/tech-park.jpg",
+    "description": "State-of-the-art facility designed for tech startups and innovative companies with collaborative spaces.",
+    "features": [
+      "Open Workspace",
+      "Meeting Rooms",
+      "Event Space",
+      "Coffee Bar",
+      "Gaming Zone",
+      "Podcast Studio"
+    ],
+    "capacity": 150,
+    "priceRange": "₹6,000 - ₹60,000",
+    "coordinates": {
+      "lat": 11.0412,
+      "lng": 76.9733
+    }
+  },
+  {
+    "id": 3,
+    "title": "Creative District",
+    "address": "789 Arts Blvd, Cultural Zone",
+    "image": "/images/locations/creative-district.jpg",
+    "description": "Inspiring workspace for artists, designers, and creative professionals with specialized studios.",
+    "features": [
+      "Designer Studios",
+      "Gallery Space",
+      "Workshop Areas",
+      "Rooftop Terrace",
+      "Art Supplies Store",
+      "Photography Studio"
+    ],
+    "capacity": 100,
+    "priceRange": "₹10,000 - ₹50,000",
+    "coordinates": {
+      "lat": 10.9806,
+      "lng": 76.9628
+    }
+  },
+  {
+    "id": 4,
+    "title": "Financial Quarter",
+    "address": "321 Wall Street, Financial District",
+    "image": "/images/locations/financial-quarter.jpg",
+    "description": "Premium executive workspace tailored for financial services and consulting firms.",
+    "features": [
+      "Executive Suites",
+      "Conference Facilities",
+      "Concierge Service",
+      "Premium Amenities",
+      "Trading Floor",
+      "Client Meeting Rooms"
+    ],
+    "capacity": 80,
+    "priceRange": "₹15,000 - ₹100,000",
+    "coordinates": {
+      "lat": 11.0142,
+      "lng": 76.9431
+    }
+  }
+]
