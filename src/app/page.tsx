@@ -1,4 +1,5 @@
-import Link from "next/link";
+import Link from 'next/link'
+import Image from 'next/image'
 
 // Component definitions
 function HeroSection() {
@@ -7,12 +8,15 @@ function HeroSection() {
       <div className="text-center">
         <div className="max-w-xl mx-auto">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Premium <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Coworking Spaces</span>{' '}
+            Premium{' '}
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Coworking Spaces
+            </span>{' '}
             for Modern Teams
           </h1>
         </div>
         <p className="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
-          Experience productivity like never before. Join a community of innovators, entrepreneurs, 
+          Experience productivity like never before. Join a community of innovators, entrepreneurs,
           and professionals in beautifully designed spaces equipped with everything you need.
         </p>
         <div className="flex items-center justify-center gap-x-6 mt-10">
@@ -31,20 +35,31 @@ function HeroSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 function LocationCard({ title, address, image, features }: {
-  title: string;
-  address: string;
-  image: string;
-  features: string[];
+  title: string
+  address: string
+  image: string
+  features: string[]
 }) {
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-      <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-        <div className="text-white text-center">
-          <div className="text-4xl font-bold">{image}</div>
+      <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center relative">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement
+            target.style.display = 'none'
+            target.nextElementSibling!.style.display = 'flex'
+          }}
+        />
+        <div className="text-white text-center absolute inset-0 flex flex-col items-center justify-center">
+          <div className="text-4xl font-bold">🏢</div>
           <div className="text-sm opacity-90 mt-2">360° Virtual Tour</div>
         </div>
       </div>
@@ -61,14 +76,14 @@ function LocationCard({ title, address, image, features }: {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 function ServiceCard({ title, description, price, features }: {
-  title: string;
-  description: string;
-  price: string;
-  features: string[];
+  title: string
+  description: string
+  price: string
+  features: string[]
 }) {
   return (
     <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
@@ -97,14 +112,14 @@ function ServiceCard({ title, description, price, features }: {
         Get Started
       </Link>
     </div>
-  );
+  )
 }
 
 function TestimonialCard({ name, role, content, company }: {
-  name: string;
-  role: string;
-  content: string;
-  company: string;
+  name: string
+  role: string
+  content: string
+  company: string
 }) {
   return (
     <div className="bg-white rounded-xl p-6 shadow-lg">
@@ -126,7 +141,7 @@ function TestimonialCard({ name, role, content, company }: {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
 export default function HomePage() {
@@ -134,28 +149,28 @@ export default function HomePage() {
     {
       title: "Downtown Hub",
       address: "123 Business District, City Center",
-      image: "🏢",
+      image: "/images/locations/downtown-hub.jpg",
       features: ["50+ Private Offices", "High-speed Internet", "24/7 Access", "Parking Available"]
     },
     {
       title: "Tech Park Campus",
       address: "456 Innovation Ave, Tech Quarter",
-      image: "🌟",
+      image: "/images/locations/tech-park.jpg",
       features: ["Open Workspace", "Meeting Rooms", "Event Space", "Coffee Bar"]
     },
     {
       title: "Creative District",
       address: "789 Arts Blvd, Cultural Zone",
-      image: "🎨",
+      image: "/images/locations/creative-district.jpg",
       features: ["Designer Studios", "Gallery Space", "Workshop Areas", "Rooftop Terrace"]
     },
     {
       title: "Financial Quarter",
       address: "321 Wall Street, Financial District",
-      image: "💼",
+      image: "/images/locations/financial-quarter.jpg",
       features: ["Executive Suites", "Conference Facilities", "Concierge Service", "Premium Amenities"]
     }
-  ];
+  ]
 
   const services = [
     {
@@ -182,7 +197,7 @@ export default function HomePage() {
       price: "₹75,000",
       features: ["5-10 person capacity", "Meeting room access", "Dedicated reception", "Custom branding"]
     }
-  ];
+  ]
 
   const testimonials = [
     {
@@ -203,19 +218,22 @@ export default function HomePage() {
       company: "GrowthLab",
       content: "Professional facilities, great networking opportunities, and excellent support staff. Highly recommend!"
     }
-  ];
+  ]
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Hero Section */}
       <HeroSection />
-      
+
       {/* Locations Section */}
       <section className="py-24 sm:py-32 bg-gray-50">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
-              Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Locations</span>
+              Our{' '}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Locations
+              </span>
             </h2>
             <p className="text-lg leading-8 text-gray-600">
               Strategically located across the city to serve you better
@@ -234,7 +252,10 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
-              Choose Your Perfect <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Workspace</span>
+              Choose Your Perfect{' '}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Workspace
+              </span>
             </h2>
             <p className="text-lg leading-8 text-gray-600">
               Flexible solutions for individuals, startups, and growing teams
@@ -253,7 +274,10 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
-              What Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Members Say</span>
+              What Our{' '}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Members Say
+              </span>
             </h2>
             <p className="text-lg leading-8 text-gray-600">
               Join hundreds of satisfied professionals who call KamSys CoWorksz home
@@ -276,7 +300,7 @@ export default function HomePage() {
                 Ready to Transform Your Work Experience?
               </h2>
               <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Join our community of innovators and take your business to the next level. 
+                Join our community of innovators and take your business to the next level.
                 Book a tour today and see why professionals choose KamSys CoWorksz.
               </p>
               <div className="flex items-center justify-center gap-x-6">
@@ -328,5 +352,5 @@ export default function HomePage() {
         }}
       />
     </div>
-  );
+  )
 }
