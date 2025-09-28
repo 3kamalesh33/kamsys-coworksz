@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Hot Desk",
+    "price": 8000,
+    "currency": "INR",
+    "period": "month",
+    "popular": false,
+    "description": "Flexible workspace in our open areas",
+    "features": [
+      "Access to common areas",
+      "High-speed WiFi",
+      "Printing facilities",
+      "Coffee & tea",
+      "Basic storage locker",
+      "Community events access"
+    ],
+    "limits": {
+      "hoursPerDay": 8,
+      "daysPerWeek": 5,
+      "guestsAllowed": 1
+    },
+    "locations": ["all"],
+    "buttonText": "Get Started",
+    "highlight": false
+  },
+  {
+    "id": 2,
+    "name": "Dedicated Desk",
+    "price": 15000,
+    "currency": "INR",
+    "period": "month",
+    "popular": true,
+    "description": "Your own desk in shared workspace",
+    "features": [
+      "Personal storage",
+      "Monitor included",
+      "Priority booking",
+      "Mail handling",
+      "24/7 access",
+      "Phone booth access",
+      "Meeting room credits (5 hours)"
+    ],
+    "limits": {
+      "hoursPerDay": 24,
+      "daysPerWeek": 7,
+      "guestsAllowed": 2
+    },
+    "locations": ["all"],
+    "buttonText": "Most Popular",
+    "highlight": true
+  },
+  {
+    "id": 3,
+    "name": "Private Office",
+    "price": 30000,
+    "currency": "INR",
+    "period": "month",
+    "popular": false,
+    "description": "Fully private office space",
+    "features": [
+      "Complete privacy",
+      "Customizable space",
+      "Phone booth access",
+      "Team collaboration",
+      "Dedicated internet line",
+      "Meeting room credits (10 hours)",
+      "Reception services",
+      "Storage cabinet"
+    ],
+    "limits": {
+      "hoursPerDay": 24,
+      "daysPerWeek": 7,
+      "guestsAllowed": 5,
+      "teamSize": "1-4 people"
+    },
+    "locations": ["downtown", "financial", "creative"],
+    "buttonText": "Contact Sales",
+    "highlight": false
+  },
+  {
+    "id": 4,
+    "name": "Team Suite",
+    "price": 75000,
+    "currency": "INR",
+    "period": "month",
+    "popular": false,
+    "description": "Perfect for growing teams",
+    "features": [
+      "5-10 person capacity",
+      "Meeting room access",
+      "Dedicated reception",
+      "Custom branding",
+      "Private conference room",
+      "Unlimited meeting room credits",
+      "Administrative support",
+      "Kitchen facilities",
+      "Multiple phone lines"
+    ],
+    "limits": {
+      "hoursPerDay": 24,
+      "daysPerWeek": 7,
+      "guestsAllowed": 15,
+      "teamSize": "5-10 people"
+    },
+    "locations": ["downtown", "tech", "financial"],
+    "buttonText": "Enterprise Plan",
+    "highlight": false
+  }
+]
